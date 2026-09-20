@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -43,6 +43,15 @@
     <p>My rule of thumb: if something is expensive and nobody owns it, that&rsquo;s where I start. The confusing bill. The activation step nobody questioned. The vendor invoice nobody reconciled.</p>
     <p>I lead three direct reports and work across Engineering, Care, Field, Sales, Marketing, and Legal. Senior enough to set the strategy, stubborn enough to still check the logs &mdash; I&rsquo;ve personally audited 10,000 call transcripts and read SIP traces when the data demanded it.</p>
   </div>
+  <div class="principles">
+    <p class="casefile-kicker">How I operate</p>
+    <ol>
+      <li><strong>If it&rsquo;s expensive and nobody owns it, that&rsquo;s where I start.</strong> The confusing bill, the unquestioned activation step, the unreconciled invoice.</li>
+      <li><strong>Follow the evidence past the org chart.</strong> Transcripts, SIP traces, and telemetry over opinions &mdash; including my own.</li>
+      <li><strong>Measure like a skeptic.</strong> If I can&rsquo;t defend a number in thirty seconds &mdash; how it was measured, what drove it &mdash; it doesn&rsquo;t ship.</li>
+      <li><strong>Ship the boring fix first.</strong> A four-digit code beat a platform rebuild; a clear bill beat a chatbot.</li>
+    </ol>
+  </div>
   <div class="stats">
     <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Years in operations</span></div>
     <div class="stat"><span class="stat-num">500K+</span><span class="stat-label">Customers in portfolio</span></div>
@@ -70,7 +79,7 @@
     </div>
     <div class="project">
       <h4>The bill nobody could read</h4>
-      <p>Billing was our highest call volume &mdash; roughly 9,750 calls a month. I audited ~10,000 transcripts, found repeating confusion patterns no FAQ would fix, and built an AWS text-to-speech Interactive Bill Explainer, iterating it against measured customer behavior.</p>
+      <p>Billing was our highest call volume &mdash; roughly 9,750 calls a month. I audited ~10,000 transcripts and found repeating confusion patterns no FAQ would fix. I evaluated multiple vendors and chose AWS text-to-speech over heavier builds &mdash; the transcripts said customers needed clarity, not conversation &mdash; then iterated the explainer against measured behavior and qual feedback.</p>
       <p class="outcome"><strong>15% of billing support calls deflected.</strong></p>
     </div>
     <div class="project">
@@ -83,6 +92,82 @@
       <p>Directed the cross-functional rollout of traffic prioritization, congestion throttling, and satellite load balancing &mdash; network capabilities sold internally as experience improvements, measured like it.</p>
       <p class="outcome"><strong>Churn down 10%, CSAT from 80 to 95.</strong></p>
     </div>
+
+    <div class="casefile">
+      <p class="casefile-kicker">Flagship case &middot; Customer journey map</p>
+      <h4>The billing journey, before and after</h4>
+      <p class="casefile-evidence">Evidence: ~10,000 billing call transcripts analyzed with Gemini NLP &middot; billing operations call data &middot; customer qual feedback</p>
+
+      <div class="sentiment">
+        <svg viewBox="0 0 500 130" role="img" aria-label="Customer sentiment curve across the five billing journey phases: calm, confused, frustrated, relieved, confident">
+          <path d="M 50,62 C 100,62 100,92 150,92 S 200,108 250,108 S 300,58 350,58 S 400,38 450,38" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="50" cy="62" r="5" fill="#b45309"/><circle cx="150" cy="92" r="5" fill="#b45309"/><circle cx="250" cy="108" r="5" fill="#b45309"/><circle cx="350" cy="58" r="5" fill="#b45309"/><circle cx="450" cy="38" r="5" fill="#b45309"/>
+          <text x="50" y="126" text-anchor="middle" class="s-label">Calm</text>
+          <text x="150" y="126" text-anchor="middle" class="s-label">Confused</text>
+          <text x="250" y="126" text-anchor="middle" class="s-label">Frustrated</text>
+          <text x="350" y="126" text-anchor="middle" class="s-label">Relieved</text>
+          <text x="450" y="126" text-anchor="middle" class="s-label">Confident</text>
+        </svg>
+      </div>
+
+      <div class="journey">
+        <div class="j-phase">
+          <p class="j-phase-name"><span class="j-stage">Before</span>1 &middot; The bill lands</p>
+          <div class="j-lane"><p class="j-lane-label">Customer does</p><p>Opens the monthly bill, scans straight for the total.</p></div>
+          <div class="j-lane"><p class="j-lane-label">Pain point</p><p>Line items read like internal billing codes, not things they bought. <span class="j-ev">transcript theme</span></p></div>
+          <div class="j-lane j-metric"><p class="j-lane-label">Metric</p><p>500K+ customers billed monthly</p></div>
+        </div>
+        <div class="j-phase">
+          <p class="j-phase-name"><span class="j-stage">Before</span>2 &middot; Tries to decode it</p>
+          <div class="j-lane"><p class="j-lane-label">Customer does</p><p>Hunts the FAQ, re-reads the same three lines.</p></div>
+          <div class="j-lane"><p class="j-lane-label">Pain point</p><p>The same confusion patterns repeat across ~10,000 transcripts &mdash; it&rsquo;s the bill, not the customer. <span class="j-ev">10K transcripts &middot; Gemini NLP</span></p></div>
+          <div class="j-lane j-metric"><p class="j-lane-label">Metric</p><p>Billing = highest call volume</p></div>
+        </div>
+        <div class="j-phase">
+          <p class="j-phase-name"><span class="j-stage">Before</span>3 &middot; Calls support</p>
+          <div class="j-lane"><p class="j-lane-label">Customer does</p><p>Joins the queue to ask a human what the bill means.</p></div>
+          <div class="j-lane"><p class="j-lane-label">Pain point</p><p>Every confused bill becomes a support call and a frustrated customer. <span class="j-ev">ops call data</span></p></div>
+          <div class="j-lane j-metric"><p class="j-lane-label">Metric</p><p>~9,750 billing calls / month</p></div>
+        </div>
+        <div class="j-phase j-after">
+          <p class="j-phase-name"><span class="j-stage j-stage-after">After</span>4 &middot; The explainer steps in</p>
+          <div class="j-lane"><p class="j-lane-label">Customer does</p><p>Gets a plain-language, text-to-speech walkthrough of their own bill.</p></div>
+          <div class="j-lane"><p class="j-lane-label">What changed</p><p>Confusion met at the moment it happens &mdash; no queue, no jargon.</p></div>
+          <div class="j-lane j-metric"><p class="j-lane-label">Metric</p><p>Adoption +5% after qual-feedback iteration</p></div>
+        </div>
+        <div class="j-phase j-after">
+          <p class="j-phase-name"><span class="j-stage j-stage-after">After</span>5 &middot; Next month&rsquo;s bill</p>
+          <div class="j-lane"><p class="j-lane-label">Customer does</p><p>Recognizes the format, self-serves, moves on.</p></div>
+          <div class="j-lane"><p class="j-lane-label">What changed</p><p>The bill stops generating calls.</p></div>
+          <div class="j-lane j-metric"><p class="j-lane-label">Metric</p><p>15% of billing calls deflected</p></div>
+        </div>
+      </div>
+
+      <div class="intervention">
+        <p class="intervention-label">The intervention</p>
+        <p>Interactive Bill Explainer &mdash; built from the confusion patterns in the transcripts, delivered as an AWS text-to-speech walkthrough, iterated against measured behavior and qual feedback.</p>
+        <p class="outcome"><strong>15% of billing support calls deflected.</strong></p>
+      </div>
+
+      <div class="blueprint">
+        <p class="casefile-kicker">Service blueprint &mdash; what had to work backstage</p>
+        <div class="bp-row"><span class="bp-label">Frontstage</span><div class="bp-chips"><span class="bp-chip">Monthly bill</span><span class="bp-chip">IVR &amp; hold queue</span><span class="bp-chip">Bill Explainer walkthrough</span><span class="bp-chip">Care agent</span></div></div>
+        <div class="bp-row"><span class="bp-label">Backstage</span><div class="bp-chips"><span class="bp-chip">Transcript analysis pipeline</span><span class="bp-chip">Agent workflows</span><span class="bp-chip">Billing operations</span></div></div>
+        <div class="bp-row"><span class="bp-label">Support systems</span><div class="bp-chips"><span class="bp-chip">Billing platform</span><span class="bp-chip">AWS text-to-speech</span><span class="bp-chip">Mixpanel behavioral data</span></div></div>
+      </div>
+
+      <p class="footnote"><strong>What I&rsquo;d do differently:</strong> ship the explainer at the bill-delivery moment from day one. We built it for the already-confused caller; the bigger win was reaching the customer before they ever picked up the phone.</p>
+    </div>
+
+    <div class="listen">
+      <p class="casefile-kicker">How I listen</p>
+      <div class="listen-grid">
+        <div class="listen-item"><p class="listen-source">~10K transcripts &middot; Gemini NLP</p><p class="listen-out">&rarr; found the confusion patterns behind billing calls</p></div>
+        <div class="listen-item"><p class="listen-source">NPS weekly + monthly &middot; CSAT &middot; surveys</p><p class="listen-out">&rarr; qual feedback lifted explainer adoption 5%</p></div>
+        <div class="listen-item"><p class="listen-source">Mixpanel &middot; network KPIs &middot; call-center data</p><p class="listen-out">&rarr; health scores powering churn &amp; loyalty plays</p></div>
+      </div>
+    </div>
+
     <div class="scale-strip">
       <div class="scale-item"><span>500K+</span> customers</div>
       <div class="scale-item"><span>~9,750</span> billing calls / month</div>
@@ -117,6 +202,7 @@
       <p>Evaluated multiple vendors for the Interactive Bill Explainer, negotiated on cost, right-sized for actual usage, and cut operational waste out of the contract.</p>
       <p class="outcome"><strong>Lower cost, right-sized from day one.</strong></p>
     </div>
+      <p class="footnote"><strong>What I&rsquo;d do differently:</strong> start the invoice audits in month one, not quarter three. The mismatches were compounding the whole time we weren&rsquo;t looking.</p>
     <div class="scale-strip">
       <div class="scale-item"><span>10+</span> vendor partners</div>
       <div class="scale-item"><span>~4,000</span> site records reconciled</div>
@@ -230,6 +316,7 @@
       <p>Built a 10-week, hands-on AI governance training plan: labs plus retrospective governance artifacts from real deployments. Employers want practical proof &mdash; this is how you get it.</p>
       <p class="outcome"><strong>Portfolio-first learning, by design.</strong></p>
     </div>
+      <p class="footnote"><strong>What I&rsquo;d do differently:</strong> write the guardrails before the demo, not after testing. The demo is what gets remembered; the guardrails are what keep it alive in production.</p>
     <div class="scale-strip">
       <div class="scale-item"><span>15</span> page RMF guide</div>
       <div class="scale-item"><span>10</span> week training plan</div>
