@@ -353,3 +353,171 @@ footer {
   .nav-links.open { display: flex; }
   .nav-toggle { display: block; }
 }
+
+/* ---------- Flagship case: journey map ---------- */
+.casefile {
+  margin-top: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  padding: clamp(1.3rem, 3.5vw, 2rem);
+}
+.casefile h4 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.casefile-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+.casefile-evidence { font-size: 0.88rem; color: var(--ink-faint); margin-bottom: 1.4rem; }
+
+.sentiment { margin-bottom: 1.6rem; }
+.sentiment svg { width: 100%; height: auto; display: block; }
+.s-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--ink-faint); }
+
+.journey {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.7rem;
+  margin-bottom: 1.4rem;
+}
+.j-phase {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.9rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.j-phase.j-after { border-color: var(--accent); background: #fffdf8; }
+.j-phase-name { font-size: 0.92rem; font-weight: 600; line-height: 1.35; }
+.j-stage {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  margin-right: 0.4rem;
+  vertical-align: 1px;
+}
+.j-stage-after { color: var(--accent-deep); border-color: var(--accent); }
+.j-lane p { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; }
+.j-lane-label {
+  font-size: 0.68rem !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint) !important;
+  margin-bottom: 0.25rem;
+}
+.j-metric p:last-child { font-weight: 600; color: var(--ink); }
+.j-ev {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--accent-deep);
+  background: var(--paper-deep);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  margin-top: 0.3rem;
+}
+
+.intervention {
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  border-radius: 0 10px 10px 0;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1.4rem;
+}
+.intervention-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.intervention > p:nth-of-type(2) { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 0.8rem; }
+
+.blueprint { margin-bottom: 1.2rem; }
+.bp-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  padding: 0.7rem 0;
+  border-top: 1px dashed var(--line);
+}
+.bp-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 0.25rem;
+}
+.bp-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.bp-chip {
+  font-size: 0.82rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  color: var(--ink-soft);
+}
+
+.footnote {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  margin-top: 0.4rem;
+}
+.footnote strong { color: var(--ink); }
+.bucket > .footnote { margin-bottom: 1.4rem; }
+
+/* ---------- How I listen ---------- */
+.listen { margin: 1.6rem 0 0.2rem; }
+.listen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+.listen-item {
+  background: var(--paper-deep);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.listen-source { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem; }
+.listen-out { font-size: 0.87rem; color: var(--ink-soft); }
+
+/* ---------- Operating principles ---------- */
+.principles { margin: 2rem 0 0; }
+.principles ol { list-style: none; display: grid; gap: 0.9rem; margin-top: 0.4rem; }
+.principles li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--ink-soft);
+  font-size: 0.99rem;
+  max-width: 44rem;
+}
+.principles li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.principles li strong { color: var(--ink); }
+
+/* ---------- Responsive: journey map ---------- */
+@media (max-width: 900px) {
+  .journey { grid-template-columns: repeat(2, 1fr); }
+  .listen-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .journey { grid-template-columns: 1fr; }
+  .bp-row { grid-template-columns: 1fr; gap: 0.4rem; }
+}
